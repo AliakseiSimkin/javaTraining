@@ -1,3 +1,5 @@
+package javaTasks.task1_sortListByStringLength;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -53,7 +55,7 @@ public class task1_sortListByStringLength {
         } catch (Exception e) {
             System.out.println("Incorrect data has been typed. ");
             System.out.println("Please try again with correct data");
-            typeNumber();
+            number = typeNumber();
         }
         return number;
     }
