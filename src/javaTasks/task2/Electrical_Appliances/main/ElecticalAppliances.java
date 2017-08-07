@@ -11,8 +11,7 @@ abstract class ElecticalAppliances {
     protected int thickness;
     protected boolean bulkyItem;
 
-
-
+    //protected String releaseDate;
 
 
     public void setPower (boolean power) {
