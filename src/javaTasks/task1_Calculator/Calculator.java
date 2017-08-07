@@ -1,4 +1,4 @@
-/**
+package javaTasks.task1_Calculator; /**
  Created by Aliaksei Simkin
  */
 import java.io.BufferedReader;
@@ -58,7 +58,7 @@ public class Calculator {
             System.out.println("Incorrect data has been typed. ");
             //e.printStackTrace();
             System.out.println("Please try again with correct data");
-            typeNumber();
+            number = typeNumber();
         }
         return number;
     }
