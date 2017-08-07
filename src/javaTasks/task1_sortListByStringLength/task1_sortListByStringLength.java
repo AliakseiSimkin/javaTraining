@@ -55,7 +55,7 @@ public class task1_sortListByStringLength {
         } catch (Exception e) {
             System.out.println("Incorrect data has been typed. ");
             System.out.println("Please try again with correct data");
-            typeNumber();
+            number = typeNumber();
         }
         return number;
     }
