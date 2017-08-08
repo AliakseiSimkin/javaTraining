@@ -1,4 +1,4 @@
-package javaTasks.task1_Calculator; /**
+package task1_Calculator; /**
  Created by Aliaksei Simkin
  */
 import java.io.BufferedReader;

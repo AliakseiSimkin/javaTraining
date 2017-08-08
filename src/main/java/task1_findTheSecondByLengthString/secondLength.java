@@ -1,4 +1,4 @@
-package javaTasks.task1_findTheSecondByLengthString;
+package task1_findTheSecondByLengthString;
 
 import java.io.BufferedReader;
 import java.io.IOException;

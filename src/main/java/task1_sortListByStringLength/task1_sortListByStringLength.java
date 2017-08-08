@@ -1,4 +1,4 @@
-package javaTasks.task1_sortListByStringLength;
+package task1_sortListByStringLength;
 
 import java.io.BufferedReader;
 import java.io.IOException;
