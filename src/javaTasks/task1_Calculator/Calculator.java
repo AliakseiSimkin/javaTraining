@@ -15,38 +15,9 @@ public class Calculator {
         double number2 = typeNumber();
 
         System.out.println("Type operation. The following characters in round brackets are allowed: (+ - * / )");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String operation = reader.readLine();
 
-        double answer;
-        switch (operation) {
-            case "+":
-                answer = number1 + number2;
-                System.out.println(answer);
-                break;
-            case "-":
-                answer = number1 - number2;
-                System.out.println(answer);
-                break;
-            case "*":
-                answer = number1 * number2;
-                System.out.println(answer);
-                break;
-            case "/":
-                do {
-                    if (number2 == 0 ) {
-                        System.out.println("Division by 0 is forbidden. Please type value different from 0");
-                        number2 = typeNumber();
-                    }
-                } while (number2 == 0);
+        chooseOperation (number1, number2);
 
-                answer = number1 / number2;
-                System.out.println(answer);
-                break;
-            default:
-                System.out.println("Typed character does not match to any accessible symbols. Please type one of the following symbols: + - * / ");
-        }
-        System.out.println("Thanks for using. Calculator is down");
     }
 
     public static double typeNumber () {
@@ -61,5 +32,44 @@ public class Calculator {
             number = typeNumber();
         }
         return number;
+    }
+
+    public static void chooseOperation (double number1, double number2) throws IOException {
+        double answer;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String operation = reader.readLine();
+
+        switch (operation) {
+            case "+":
+                answer = number1 + number2;
+                System.out.println(answer);
+                System.out.println("Thanks for using. Calculator is down");
+                break;
+            case "-":
+                answer = number1 - number2;
+                System.out.println(answer);
+                System.out.println("Thanks for using. Calculator is down");
+                break;
+            case "*":
+                answer = number1 * number2;
+                System.out.println(answer);
+                System.out.println("Thanks for using. Calculator is down");
+                break;
+            case "/":
+                do {
+                    if (number2 == 0 ) {
+                        System.out.println("Division by 0 is forbidden. Please type value different from 0");
+                        number2 = typeNumber();
+                    }
+                } while (number2 == 0);
+
+                answer = number1 / number2;
+                System.out.println(answer);
+                System.out.println("Thanks for using. Calculator is down");
+                break;
+            default:
+                System.out.println("Typed character does not match to any accessible symbols. Please type one of the following symbols: + - * / ");
+                chooseOperation(number1, number2);
+        }
     }
 }
