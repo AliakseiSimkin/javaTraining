@@ -6,6 +6,10 @@ public class Main {
         HairDryer myHairDryer = new HairDryer(300, "red", true, 400, true, 220, 2, 75, 50, 35 );
         VacuumCleaner myVacuumCleaner = new VacuumCleaner ( "container", 760, 500, "blue", 630, true, 220, 7, 120, 78, 60);
 
+
+
+
+
         
     }
 
