@@ -27,6 +27,55 @@ public class TV extends AudioVideo implements ChangeVolume {
         }
     }
 
+    public String getTvType() {
+        return tvType;
+    }
+
+    public void setTvType(String tvType) {
+        this.tvType = tvType;
+    }
+
+    public int getScreenDiagonal() {
+        return screenDiagonal;
+    }
+
+    public void setScreenDiagonal(int screenDiagonal) {
+        this.screenDiagonal = screenDiagonal;
+    }
+
+    public String getScreenResolution() {
+        return screenResolution;
+    }
+
+    public void setScreenResolution(String screenResolution) {
+        this.screenResolution = screenResolution;
+    }
+
+    public String getAspectRatio() {
+        return aspectRatio;
+    }
+
+    public void setAspectRatio(String aspectRatio) {
+        this.aspectRatio = aspectRatio;
+    }
+
+    public boolean isSmartTV() {
+        return smartTV;
+    }
+
+    public void setSmartTV(boolean smartTV) {
+        this.smartTV = smartTV;
+    }
+
+    public String getSmartTvType() {
+        return smartTvType;
+    }
+
+    public void setSmartTvType(String smartTvType) {
+        this.smartTvType = smartTvType;
+    }
+
+
     @Override
     public void volumeUp(int volume) {
 

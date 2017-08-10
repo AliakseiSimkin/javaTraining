@@ -61,7 +61,6 @@ public abstract class ElectricalAppliances {
             return true;
         } else
             return false;
-
     }
     public boolean getBulkyItem () {
         return this.bulkyItem;

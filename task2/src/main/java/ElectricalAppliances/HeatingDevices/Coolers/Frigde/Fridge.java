@@ -24,8 +24,6 @@ public class Fridge extends Coolers implements ChangeTemperature {
             int freezerMinTemperature = -15;
             int freezerMaxTemperature = -5;
         }
-
-        System.out.println(getBulkyItem());
     }
 
     public void temperatureUp (int currentTemperature) {

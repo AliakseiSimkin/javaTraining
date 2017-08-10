@@ -17,8 +17,6 @@ public class VacuumCleaner extends Dry implements AirForceAdjustment {
         this.vacuumCleanerPower = vacuumCleanerPower;
         this.suctionPower = suctionPower;
         this.caseColor = caseColor;
-
-        System.out.println(getBulkyItem());
     }
 
 

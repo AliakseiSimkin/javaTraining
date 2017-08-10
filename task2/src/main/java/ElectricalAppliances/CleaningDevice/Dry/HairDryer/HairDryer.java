@@ -16,7 +16,6 @@ public class HairDryer extends Dry implements AirForceAdjustment {
         this.caseColor = caseColor;
 
         bulkyItemEvaluation(weight, length, width, thickness);
-        System.out.println(getBulkyItem());
     }
 
 
