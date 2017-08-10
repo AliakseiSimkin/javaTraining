@@ -24,4 +24,8 @@ public class Heater extends Heaters implements ChangeTemperature {
     public void temperatureDown(int currentTemperature) {
 
     }
+
+    public String toString() {
+        return "Heater with parameters: heaterType - " + this.heaterType + ", heatingArea - " + this.heatingArea;
+    }
 }

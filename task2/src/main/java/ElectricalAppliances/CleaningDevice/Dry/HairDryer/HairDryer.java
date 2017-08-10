@@ -29,4 +29,8 @@ public class HairDryer extends Dry implements AirForceAdjustment {
     public void setAirForce(int speed) {
 
     }
+
+    public String toString() {
+         return "HairDryer with parameters: hairDryerPower - " + this.hairDryerPower + ", caseColor - " + this.caseColor;
+    }
 }

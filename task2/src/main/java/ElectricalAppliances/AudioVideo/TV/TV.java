@@ -85,4 +85,8 @@ public class TV extends AudioVideo implements ChangeVolume {
     public void volumeDown(int volume) {
 
     }
+
+    public String toString() {
+        return "TV with parameters: tvType - " + this.tvType + ", screenDiagonal - " + this.screenDiagonal;
+    }
 }

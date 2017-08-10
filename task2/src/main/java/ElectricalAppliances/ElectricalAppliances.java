@@ -28,6 +28,9 @@ public abstract class ElectricalAppliances {
         return this.power;
     }
 
+    public int getVoltagePower() { return voltagePower; }
+    public void setVoltagePower(int voltagePower) { this.voltagePower = voltagePower; }
+
     public void setWeight (double weight) {
         this.weight = weight;
     }
@@ -54,6 +57,13 @@ public abstract class ElectricalAppliances {
     }
     public double getThickness () {
         return this.thickness;
+    }
+
+    public int getReleaseDate() {
+        return releaseDate;
+    }
+    public void setReleaseDate(int releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public boolean bulkyItemEvaluation (double weight, double length, double width, double thickness) {

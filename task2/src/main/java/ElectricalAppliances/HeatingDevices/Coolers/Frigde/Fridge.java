@@ -34,5 +34,7 @@ public class Fridge extends Coolers implements ChangeTemperature {
 
     }
 
-
+    public String toString() {
+        return "Fridge with parameters: freezer - " + this.freezer + ", caseColor - " + this.caseColor;
+    }
 }

@@ -24,4 +24,7 @@ public class VacuumCleaner extends Dry implements AirForceAdjustment {
 
     }
 
+    public String toString() {
+        return "Vacuum Cleaner with parameters: dustCollector - " + this.dustCollector + ", caseColor - " + this.caseColor;
+    }
 }
