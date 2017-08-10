@@ -1,8 +1,11 @@
-package javaTasks.task2.Electrical_Appliances.main;
+package ElectricalAppliances.HeatingDevices.Coolers;
 
-/**
- * Created by BloodyPoSTaL on 08.08.2017.
- */
-abstract class Coolers extends HeatingDevices {
+import ElectricalAppliances.HeatingDevices.HeatingDevices;
 
+public abstract class Coolers extends HeatingDevices {
+
+    public Coolers(boolean heatingType, boolean power, int voltagePower, double weight, double length, double width, double thickness, int releaseDate) {
+        super(false, power, voltagePower, weight, length, width, thickness, releaseDate);
+
+    }
 }

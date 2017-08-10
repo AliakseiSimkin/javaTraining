@@ -1,6 +1,5 @@
 package ElectricalAppliances.CleaningDevice.Dry;
 
-
 import ElectricalAppliances.CleaningDevice.CleaningDevice;
 
 public abstract class Dry extends CleaningDevice {

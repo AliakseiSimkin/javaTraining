@@ -1,8 +1,9 @@
-package javaTasks.task2.Electrical_Appliances.main;
+package ElectricalAppliances.HeatingDevices.Coolers.Frigde;
 
-/**
- * Created by BloodyPoSTaL on 08.08.2017.
- */
+import ElectricalAppliances.HeatingDevices.ChangeTemperature;
+import ElectricalAppliances.HeatingDevices.Coolers.Coolers;
+
+
 public class Fridge extends Coolers implements ChangeTemperature {
     protected int minTemperature;
     protected int maxTemperature;
@@ -10,7 +11,9 @@ public class Fridge extends Coolers implements ChangeTemperature {
     boolean freezer;
     protected int currentTemperature;
 
-    public Fridge (int minTemperature, int maxTemperature, String caseColor, boolean freezer) {
+    public Fridge(int minTemperature, int maxTemperature, String caseColor, boolean freezer, boolean heatingType, boolean power, int voltagePower, double weight, double length, double width, double thickness, int releaseDate) {
+        super(true, power, voltagePower, weight, length, width, thickness, releaseDate);
+
         this.minTemperature = minTemperature;
         this.maxTemperature = maxTemperature;
         this.caseColor = caseColor;
@@ -22,11 +25,6 @@ public class Fridge extends Coolers implements ChangeTemperature {
             int freezerMaxTemperature = -5;
         }
 
-        this.weight = 5;
-        this.length = 77;
-        this.width = 55;
-        this.thickness = 98;
-        bulkyItemEvaluation(weight, length, width, thickness);
         System.out.println(getBulkyItem());
     }
 
