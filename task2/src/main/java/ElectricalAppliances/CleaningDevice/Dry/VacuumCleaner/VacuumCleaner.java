@@ -10,8 +10,8 @@ public class VacuumCleaner extends Dry implements AirForceAdjustment {
     protected int suctionPower;
     protected String caseColor;
 
-    public VacuumCleaner(String dustCollector, int vacuumCleanerPower, int suctionPower, String caseColor, int speed, boolean power, int voltagePower, int weight, int length, int width, int thickness) {
-        super(speed, power, voltagePower, weight, length, width, thickness);
+    public VacuumCleaner(String dustCollector, int vacuumCleanerPower, int suctionPower, String caseColor, int speed, boolean power, int voltagePower, double weight, double length, double width, double thickness, int releaseDate) {
+        super(speed, power, voltagePower, weight, length, width, thickness, releaseDate);
 
         this.dustCollector = dustCollector;
         this.vacuumCleanerPower = vacuumCleanerPower;

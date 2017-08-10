@@ -9,8 +9,8 @@ public class HairDryer extends Dry implements AirForceAdjustment {
     protected String caseColor;
     protected boolean coldAir;
 
-    public HairDryer(int hairDryerPower, String caseColor, boolean coldAir, int speed, boolean power, int voltagePower, int weight, int length, int width, int thickness) {
-        super(speed, power, voltagePower, weight, length, width, thickness);
+    public HairDryer(int hairDryerPower, String caseColor, boolean coldAir, int speed, boolean power, int voltagePower, double weight, double length, double width, double thickness, int releaseDate) {
+        super(speed, power, voltagePower, weight, length, width, thickness, releaseDate);
 
         this.hairDryerPower = hairDryerPower;
         this.caseColor = caseColor;
