@@ -1,13 +1,14 @@
-package ElectricalAppliances.HeatingDevices;
+package electricalAppliances.heatingDevices;
 
-import ElectricalAppliances.ElectricalAppliances;
+import electricalAppliances.ElectricalAppliances;
 
 
 public abstract class HeatingDevices extends ElectricalAppliances {
     protected boolean heatingType;
 
-    public HeatingDevices(boolean heatingType, boolean power, int voltagePower, double weight, double length, double width, double thickness, int releaseDate) {
-        super(power, voltagePower, weight, length, width, thickness, releaseDate);
+    public HeatingDevices(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width,
+                          double thickness, boolean power, boolean heatingType) {
+        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power);
         this.heatingType = heatingType;
     }
 

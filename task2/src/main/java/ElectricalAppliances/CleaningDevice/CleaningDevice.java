@@ -1,13 +1,14 @@
-package ElectricalAppliances.CleaningDevice;
+package electricalAppliances.cleaningDevice;
 
-import ElectricalAppliances.ElectricalAppliances;
+import electricalAppliances.ElectricalAppliances;
 
 
 public abstract class CleaningDevice extends ElectricalAppliances {
-    int speed;
+    protected int speed;
 
-    public CleaningDevice(int speed, boolean power, int voltagePower, double weight, double length, double width, double thickness, int releaseDate) {
-        super(power, voltagePower, weight, length, width, thickness, releaseDate);
+    public CleaningDevice(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width,
+                          double thickness, boolean power, int speed) {
+        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power);
         this.speed = speed;
     }
 

@@ -1,4 +1,4 @@
-package ElectricalAppliances.HeatingDevices;
+package electricalAppliances.heatingDevices;
 
 
 public interface ChangeTemperature {

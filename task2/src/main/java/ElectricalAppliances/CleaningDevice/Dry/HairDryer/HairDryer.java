@@ -1,7 +1,7 @@
-package ElectricalAppliances.CleaningDevice.Dry.HairDryer;
+package electricalAppliances.cleaningDevice.dry.hairDryer;
 
-import ElectricalAppliances.CleaningDevice.Dry.AirForceAdjustment;
-import ElectricalAppliances.CleaningDevice.Dry.Dry;
+import electricalAppliances.cleaningDevice.dry.AirForceAdjustment;
+import electricalAppliances.cleaningDevice.dry.Dry;
 
 
 public class HairDryer extends Dry implements AirForceAdjustment {
@@ -9,28 +9,43 @@ public class HairDryer extends Dry implements AirForceAdjustment {
     protected String caseColor;
     protected boolean coldAir;
 
-    public HairDryer(int hairDryerPower, String caseColor, boolean coldAir, int speed, boolean power, int voltagePower, double weight, double length, double width, double thickness, int releaseDate) {
-        super(speed, power, voltagePower, weight, length, width, thickness, releaseDate);
+    public HairDryer(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width,
+                     double thickness, boolean power, int speed, int hairDryerPower, String caseColor, boolean coldAir) {
+        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power, speed);
 
         this.hairDryerPower = hairDryerPower;
         this.caseColor = caseColor;
-
-        bulkyItemEvaluation(weight, length, width, thickness);
     }
 
-
-    public void setColdAir (boolean coldAir) {
-        this.coldAir = coldAir;
+    public int getHairDryerPower() {
+        return hairDryerPower;
     }
+    public void setHairDryerPower(int hairDryerPower) {
+        this.hairDryerPower = hairDryerPower;
+    }
+
+    public String getCaseColor() {
+        return caseColor;
+    }
+    public void setCaseColor(String caseColor) {
+        this.caseColor = caseColor;
+    }
+
     public boolean getColdAir () {
         return this.coldAir;
     }
-
-    public void setAirForce(int speed) {
-
+    public void setColdAir (boolean coldAir) {
+        this.coldAir = coldAir;
     }
 
+    @Override
+    public void setAirForce(int speed) {
+        /* some implementation */
+    }
+
+    @Override
     public String toString() {
-         return "HairDryer with parameters: hairDryerPower - " + this.hairDryerPower + ", caseColor - " + this.caseColor;
+         return "HairDryer was produced by " + company + " company, its model is " + model + "and it has following features: hairDryerPower - "
+                + hairDryerPower + ", caseColor - " + caseColor;
     }
 }

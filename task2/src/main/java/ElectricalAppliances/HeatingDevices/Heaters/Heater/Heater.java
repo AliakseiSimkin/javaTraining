@@ -1,31 +1,49 @@
-package ElectricalAppliances.HeatingDevices.Heaters.Heater;
+package electricalAppliances.heatingDevices.heaters.heater;
 
-import ElectricalAppliances.HeatingDevices.ChangeTemperature;
-import ElectricalAppliances.HeatingDevices.Heaters.Heaters;
+import electricalAppliances.heatingDevices.ChangeTemperature;
+import electricalAppliances.heatingDevices.heaters.Heaters;
+
 
 public class Heater extends Heaters implements ChangeTemperature {
     protected String heaterType;
     protected int heatingArea;
 
 
-    public Heater(String heaterType, int heatingArea, boolean heatingType, boolean power, int voltagePower, double weight, double length, double width, double thickness, int releaseDate) {
-        super(true, power, voltagePower, weight, length, width, thickness, releaseDate);
+    public Heater(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width, double thickness,
+                  boolean power, boolean heatingType, String heaterType, int heatingArea) {
+        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power, true);
 
         this.heaterType = heaterType;
         this.heatingArea = heatingArea;
     }
 
+    public String getHeaterType() {
+        return heaterType;
+    }
+    public void setHeaterType(String heaterType) {
+        this.heaterType = heaterType;
+    }
+
+    public int getHeatingArea() {
+        return heatingArea;
+    }
+    public void setHeatingArea(int heatingArea) {
+        this.heatingArea = heatingArea;
+    }
+
     @Override
     public void temperatureUp(int currentTemperature) {
-
+        /* some implementation */
     }
 
     @Override
     public void temperatureDown(int currentTemperature) {
-
+        /* some implementation */
     }
 
+    @Override
     public String toString() {
-        return "Heater with parameters: heaterType - " + this.heaterType + ", heatingArea - " + this.heatingArea;
+        return "Heater company is " + company + ", model is " + model + ", and general parameters are: heaterType - " + heaterType
+                + ", heatingArea - " + heatingArea;
     }
 }

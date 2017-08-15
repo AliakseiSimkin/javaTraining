@@ -1,7 +1,7 @@
-package ElectricalAppliances.AudioVideo.TV;
+package electricalAppliances.audioVideo.tv;
 
-import ElectricalAppliances.AudioVideo.AudioVideo;
-import ElectricalAppliances.AudioVideo.ChangeVolume;
+import electricalAppliances.audioVideo.AudioVideo;
+import electricalAppliances.audioVideo.ChangeVolume;
 
 public class TV extends AudioVideo implements ChangeVolume {
     protected String tvType; //LCD TV, analog TV, etc
@@ -11,8 +11,10 @@ public class TV extends AudioVideo implements ChangeVolume {
     protected boolean smartTV; //Does TV support smartTV or not?
     protected String smartTvType; // if smartTV is true - LG webOS  (3.0), AppleTV, etc
 
-    public TV(String tvType, int screenDiagonal, String screenResolution, String aspectRatio, boolean smartTV, String smartTvType, boolean power, int voltagePower, double weight, double length, double width, double thickness, int releaseDate) {
-        super(power, voltagePower, weight, length, width, thickness, releaseDate);
+    public TV(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width, double thickness,
+              boolean power, String tvType, int screenDiagonal, String screenResolution, String aspectRatio,
+              boolean smartTV, String smartTvType) {
+        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power);
 
         this.tvType = tvType;
         this.screenDiagonal = screenDiagonal;
@@ -30,7 +32,6 @@ public class TV extends AudioVideo implements ChangeVolume {
     public String getTvType() {
         return tvType;
     }
-
     public void setTvType(String tvType) {
         this.tvType = tvType;
     }
@@ -38,7 +39,6 @@ public class TV extends AudioVideo implements ChangeVolume {
     public int getScreenDiagonal() {
         return screenDiagonal;
     }
-
     public void setScreenDiagonal(int screenDiagonal) {
         this.screenDiagonal = screenDiagonal;
     }
@@ -46,7 +46,6 @@ public class TV extends AudioVideo implements ChangeVolume {
     public String getScreenResolution() {
         return screenResolution;
     }
-
     public void setScreenResolution(String screenResolution) {
         this.screenResolution = screenResolution;
     }
@@ -54,13 +53,8 @@ public class TV extends AudioVideo implements ChangeVolume {
     public String getAspectRatio() {
         return aspectRatio;
     }
-
     public void setAspectRatio(String aspectRatio) {
         this.aspectRatio = aspectRatio;
-    }
-
-    public boolean isSmartTV() {
-        return smartTV;
     }
 
     public void setSmartTV(boolean smartTV) {
@@ -70,23 +64,23 @@ public class TV extends AudioVideo implements ChangeVolume {
     public String getSmartTvType() {
         return smartTvType;
     }
-
     public void setSmartTvType(String smartTvType) {
         this.smartTvType = smartTvType;
     }
 
-
     @Override
     public void volumeUp(int volume) {
-
+        /* some implementation */
     }
 
     @Override
     public void volumeDown(int volume) {
-
+        /* some implementation */
     }
 
+    @Override
     public String toString() {
-        return "TV with parameters: tvType - " + this.tvType + ", screenDiagonal - " + this.screenDiagonal;
+        return "This TV is a the property of " + company + " company and its model is " + model + ". This TV has following up-to-date features: tvType - "
+                + tvType + " and screenDiagonal - " + screenDiagonal;
     }
 }

@@ -1,4 +1,4 @@
-package ElectricalAppliances.CleaningDevice.Dry;
+package electricalAppliances.cleaningDevice.dry;
 
 public interface AirForceAdjustment {
 

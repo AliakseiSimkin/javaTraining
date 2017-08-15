@@ -1,7 +1,7 @@
-package ElectricalAppliances.CleaningDevice.Dry.VacuumCleaner;
+package electricalAppliances.cleaningDevice.dry.vacuumCleaner;
 
-import ElectricalAppliances.CleaningDevice.Dry.AirForceAdjustment;
-import ElectricalAppliances.CleaningDevice.Dry.Dry;
+import electricalAppliances.cleaningDevice.dry.AirForceAdjustment;
+import electricalAppliances.cleaningDevice.dry.Dry;
 
 
 public class VacuumCleaner extends Dry implements AirForceAdjustment {
@@ -10,8 +10,9 @@ public class VacuumCleaner extends Dry implements AirForceAdjustment {
     protected int suctionPower;
     protected String caseColor;
 
-    public VacuumCleaner(String dustCollector, int vacuumCleanerPower, int suctionPower, String caseColor, int speed, boolean power, int voltagePower, double weight, double length, double width, double thickness, int releaseDate) {
-        super(speed, power, voltagePower, weight, length, width, thickness, releaseDate);
+    public VacuumCleaner(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width,
+                         double thickness, boolean power, int speed, String dustCollector, int vacuumCleanerPower, int suctionPower, String caseColor) {
+        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power, speed);
 
         this.dustCollector = dustCollector;
         this.vacuumCleanerPower = vacuumCleanerPower;
@@ -19,12 +20,42 @@ public class VacuumCleaner extends Dry implements AirForceAdjustment {
         this.caseColor = caseColor;
     }
 
-
-    public void setAirForce(int speed) {
-
+    public String getDustCollector() {
+        return dustCollector;
+    }
+    public void setDustCollector(String dustCollector) {
+        this.dustCollector = dustCollector;
     }
 
+    public int getVacuumCleanerPower() {
+        return vacuumCleanerPower;
+    }
+    public void setVacuumCleanerPower(int vacuumCleanerPower) {
+        this.vacuumCleanerPower = vacuumCleanerPower;
+    }
+
+    public int getSuctionPower() {
+        return suctionPower;
+    }
+    public void setSuctionPower(int suctionPower) {
+        this.suctionPower = suctionPower;
+    }
+
+    public String getCaseColor() {
+        return caseColor;
+    }
+    public void setCaseColor(String caseColor) {
+        this.caseColor = caseColor;
+    }
+
+    @Override
+    public void setAirForce(int speed) {
+        /* some implementation */
+    }
+
+    @Override
     public String toString() {
-        return "Vacuum Cleaner with parameters: dustCollector - " + this.dustCollector + ", caseColor - " + this.caseColor;
+        return "Vacuum Cleaner was produced by " + company + ", its model is " + model + " and it has following features: dustCollector - "
+                + dustCollector + ", caseColor - " + caseColor;
     }
 }

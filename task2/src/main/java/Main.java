@@ -1,20 +1,33 @@
-import ElectricalAppliances.AudioVideo.TV.TV;
-import ElectricalAppliances.CleaningDevice.Dry.HairDryer.HairDryer;
-import ElectricalAppliances.CleaningDevice.Dry.VacuumCleaner.VacuumCleaner;
-import ElectricalAppliances.ElectricalAppliances;
-import ElectricalAppliances.HeatingDevices.Coolers.Frigde.Fridge;
-import ElectricalAppliances.HeatingDevices.Heaters.Heater.Heater;
+import electricalAppliances.ElectricalAppliances;
+import electricalAppliances.audioVideo.tv.TV;
+import electricalAppliances.cleaningDevice.dry.hairDryer.HairDryer;
+import electricalAppliances.cleaningDevice.dry.vacuumCleaner.VacuumCleaner;
+import electricalAppliances.heatingDevices.coolers.frigde.Fridge;
+import electricalAppliances.heatingDevices.heaters.heater.Heater;
 
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        HairDryer myHairDryer = new HairDryer(300, "red", true, 400, true, 220, 2, 75, 50, 35, 2016 );
-        VacuumCleaner myVacuumCleaner = new VacuumCleaner ( "container", 760, 500, "blue", 630, true, 220, 7, 120, 78, 60, 2014);
-        Fridge myFridge = new Fridge(-0, 5, "white", true, false, false, 220, 25, 220, 120,95, 2017);
-        Heater myHeater = new Heater("infrared", 33, true, true, 220, 7, 160, 45, 38, 2017);
-        TV myTV = new TV("LCD", 55, "Full HD", "16:9", false, "none", true, 220, 12, 200, 100, 10, 2015);
-        TV myTV2 = new TV("LCD", 43, "Full HD", "16:9", false, "none", false, 220, 12, 200, 100, 10, 2017);
+        HairDryer myHairDryer = new HairDryer("Xiaomi","XT-Ultra1",2016, 220, 1.5, 75,
+        35, 20, true, 300, 120, "red", true);
+
+        VacuumCleaner myVacuumCleaner = new VacuumCleaner ("EPAM", "IoT VC - type 1", 2018, 220, 10,
+        115, 75, 40, false, 700, "container", 350, 200,
+                "Light Blue");
+
+        Fridge myFridge = new Fridge("Atlant", "Belarus 01", 2017, 220, 28, 200,115,
+        82, true, false, -5, 5, 0, "White",
+        true, -15, -5, -8);
+
+        Heater myHeater = new Heater("BelAZ ", "homeTractorEngine_DX4021", 2018, 220, 13, 220,
+        113, 66, true, true, "Engine", 120);
+
+        TV myTV = new TV("Sony", "XperiaTV TU2", 2016, 220, 8, 330, 150, 10,
+        false, "LCD", 83, "UHD", "16:9", true, "AndroidTV");
+
+        TV myTV2 = new TV("Sharp", "TVs P9", 2017, 220, 12, 120, 70, 40,
+                true, "Analog TV", 27, "320:160", "4:3", false, "There is no smartTV");
 
         //Add all devices into ArrayList
         ArrayList<ElectricalAppliances> devicesInRoom = new ArrayList<ElectricalAppliances>();
@@ -25,7 +38,6 @@ public class Main {
         addApplianceToList(devicesInRoom, myTV);
         addApplianceToList(devicesInRoom, myTV2);
 
-        //Включить некоторые в розетку (я получаю все девайсы, которые включены в розетку)
         //Create a new ArrayList which contains only power ON devices.
         ArrayList<ElectricalAppliances> powerOnDevices = new ArrayList<ElectricalAppliances>();
         powerOnDevices = getPowerOnDevices(devicesInRoom);
@@ -33,21 +45,18 @@ public class Main {
         //Get row separator which depends on user's OS to move the carriage to a new line
         String newLine = System.getProperty("line.separator");
 
-        //Посчитать потребляемую мощность
         //Print all power ON devices
         System.out.print("Devices are ON: ");
         printDevices(powerOnDevices);
         int powerConsumption = calculatePowerConsumption(powerOnDevices); //Get total power consumption from all power ON devices
         System.out.println(newLine + "Power consumed by power ON devices is " + powerConsumption);
 
-        //Провести сортировку приборов в квартире на основе одного из параметров.
         //Sort devices by Release Date.
         ArrayList<ElectricalAppliances> sortedDevices = new ArrayList<ElectricalAppliances>(devicesInRoom);
         System.out.println("Sorting all devices by their Release Date ");
         sortedDevices = sortByReleaseDate(devicesInRoom);
         printDevicesReleaseDate(sortedDevices);
 
-        //Найти прибор в квартире, соответствующий заданному диапазону параметров.
         //Find device with POWER ON (true) and BulkyItem (true) parameters
         ArrayList<ElectricalAppliances> powerOnBulkyDevices = findDeviceByPowerAndBulky (devicesInRoom);
         System.out.println(newLine + "Power ON and Bulky Devices will be printed: ");

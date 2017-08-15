@@ -1,40 +1,111 @@
-package ElectricalAppliances.HeatingDevices.Coolers.Frigde;
+package electricalAppliances.heatingDevices.coolers.frigde;
 
-import ElectricalAppliances.HeatingDevices.ChangeTemperature;
-import ElectricalAppliances.HeatingDevices.Coolers.Coolers;
+import electricalAppliances.heatingDevices.ChangeTemperature;
+import electricalAppliances.heatingDevices.coolers.Coolers;
 
 
 public class Fridge extends Coolers implements ChangeTemperature {
-    protected int minTemperature;
-    protected int maxTemperature;
+    protected int minFridgeTemperature;
+    protected int maxFridgeTemperature;
     protected String caseColor;
-    boolean freezer;
-    protected int currentTemperature;
+    protected int currentFridgeTemperature;
+    protected boolean freezer;
+    protected int minFreezerTemperature;
+    protected int maxFreezerTemperature;
+    protected int currentFreezerTemperature;
 
-    public Fridge(int minTemperature, int maxTemperature, String caseColor, boolean freezer, boolean heatingType, boolean power, int voltagePower, double weight, double length, double width, double thickness, int releaseDate) {
-        super(true, power, voltagePower, weight, length, width, thickness, releaseDate);
+    public Fridge(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width, double thickness,
+                  boolean power, boolean heatingType, int minFridgeTemperature, int maxFridgeTemperature, int currentFridgeTemperature, String caseColor,
+                  boolean freezer, int minFreezerTemperature, int maxFreezerTemperature, int currentFreezerTemperature) {
+        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power, false);
 
-        this.minTemperature = minTemperature;
-        this.maxTemperature = maxTemperature;
+        this.minFridgeTemperature = minFridgeTemperature;
+        this.maxFridgeTemperature = maxFridgeTemperature;
+        this.currentFridgeTemperature = currentFridgeTemperature;
         this.caseColor = caseColor;
         this.freezer = freezer;
-        this.currentTemperature = 5;
+
 
         if (freezer == true) {
-            int freezerMinTemperature = -15;
-            int freezerMaxTemperature = -5;
+            this.minFreezerTemperature = minFreezerTemperature;
+            this.maxFreezerTemperature = maxFreezerTemperature;
         }
+        else {
+            this.minFreezerTemperature = 0;
+            this.maxFreezerTemperature = 0;
+        }
+        this.currentFreezerTemperature = currentFreezerTemperature;
     }
 
+    public int getMinFridgeTemperature() {
+        return minFridgeTemperature;
+    }
+    public void setMinFridgeTemperature(int minFridgeTemperature) {
+        this.minFridgeTemperature = minFridgeTemperature;
+    }
+
+    public int getMaxFridgeTemperature() {
+        return maxFridgeTemperature;
+    }
+    public void setMaxFridgeTemperature(int maxFridgeTemperature) {
+        this.maxFridgeTemperature = maxFridgeTemperature;
+    }
+
+    public String getCaseColor() {
+        return caseColor;
+    }
+    public void setCaseColor(String caseColor) {
+        this.caseColor = caseColor;
+    }
+
+    public boolean getFreezer() {
+        return this.freezer;
+    }
+    public void setFreezer(boolean freezer) {
+        this.freezer = freezer;
+    }
+
+    public int getCurrentFridgeTemperature() {
+        return currentFridgeTemperature;
+    }
+    public void setCurrentFridgeTemperature(int currentFridgeTemperature) {
+        this.currentFridgeTemperature = currentFridgeTemperature;
+    }
+
+    public int getMinFreezerTemperature() {
+        return minFreezerTemperature;
+    }
+    public void setMinFreezerTemperature(int minFreezerTemperature) {
+        this.minFreezerTemperature = minFreezerTemperature;
+    }
+
+    public int getMaxFreezerTemperature() {
+        return maxFreezerTemperature;
+    }
+    public void setMaxFreezerTemperature(int maxFreezerTemperature) {
+        this.maxFreezerTemperature = maxFreezerTemperature;
+    }
+
+    public int getCurrentFreezerTemperature() {
+        return currentFreezerTemperature;
+    }
+    public void setCurrentFreezerTemperature(int currentFreezerTemperature) {
+        this.currentFreezerTemperature = currentFreezerTemperature;
+    }
+
+    @Override
     public void temperatureUp (int currentTemperature) {
-
+        /* some implementation */
     }
-
+    @Override
     public void temperatureDown (int currentTemperature) {
-
+        /* some implementation */
     }
 
+    @Override
     public String toString() {
-        return "Fridge with parameters: freezer - " + this.freezer + ", caseColor - " + this.caseColor;
+        return "Fridge company is " + company + ", model is " + model + ", and general parameters are: minTemperature - "
+                + minFridgeTemperature + ", maxTemperature - " + maxFridgeTemperature + ", Does it have a freezer? - "
+                + freezer + " and caseColor - " + caseColor;
     }
 }

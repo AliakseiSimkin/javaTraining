@@ -1,4 +1,4 @@
-package ElectricalAppliances.AudioVideo;
+package electricalAppliances.audioVideo;
 
 public interface ChangeVolume {
 

@@ -1,10 +1,12 @@
-package ElectricalAppliances.AudioVideo;
+package electricalAppliances.audioVideo;
 
-import ElectricalAppliances.ElectricalAppliances;
+import electricalAppliances.ElectricalAppliances;
+
 
 public class AudioVideo extends ElectricalAppliances {
 
-    public AudioVideo(boolean power, int voltagePower, double weight, double length, double width, double thickness, int releaseDate) {
-        super(power, voltagePower, weight, length, width, thickness, releaseDate);
+    public AudioVideo(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width, double thickness,
+                      boolean power) {
+        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power);
     }
 }
