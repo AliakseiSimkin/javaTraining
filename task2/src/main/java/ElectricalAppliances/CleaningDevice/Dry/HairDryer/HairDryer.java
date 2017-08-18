@@ -9,9 +9,9 @@ public class HairDryer extends Dry implements AirForceAdjustment {
     protected String caseColor;
     protected boolean coldAir;
 
-    public HairDryer(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width,
+    public HairDryer(String company, String model, int releaseDate, int wattsPower, double weight, double length, double width,
                      double thickness, boolean power, int speed, int hairDryerPower, String caseColor, boolean coldAir) {
-        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power, speed);
+        super(company, model, releaseDate, wattsPower, weight, length, width, thickness, power, speed);
 
         this.hairDryerPower = hairDryerPower;
         this.caseColor = caseColor;
@@ -45,7 +45,6 @@ public class HairDryer extends Dry implements AirForceAdjustment {
 
     @Override
     public String toString() {
-         return "HairDryer was produced by " + company + " company, its model is " + model + "and it has following features: hairDryerPower - "
-                + hairDryerPower + ", caseColor - " + caseColor;
+         return "HairDryer was produced by " + company + " company, model - " + model + ", Release Date - " + releaseDate + ", wattsPower - " + wattsPower;
     }
 }

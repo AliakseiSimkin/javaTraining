@@ -9,9 +9,9 @@ public class Heater extends Heaters implements ChangeTemperature {
     protected int heatingArea;
 
 
-    public Heater(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width, double thickness,
+    public Heater(String company, String model, int releaseDate, int wattsPower, double weight, double length, double width, double thickness,
                   boolean power, boolean heatingType, String heaterType, int heatingArea) {
-        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power, true);
+        super(company, model, releaseDate, wattsPower, weight, length, width, thickness, power, true);
 
         this.heaterType = heaterType;
         this.heatingArea = heatingArea;
@@ -43,7 +43,6 @@ public class Heater extends Heaters implements ChangeTemperature {
 
     @Override
     public String toString() {
-        return "Heater company is " + company + ", model is " + model + ", and general parameters are: heaterType - " + heaterType
-                + ", heatingArea - " + heatingArea;
+        return "Heater company is " + company + ", model - " + model + ", Release Date - " + releaseDate + ", power in watts - " + wattsPower + ".";
     }
 }

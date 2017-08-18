@@ -4,7 +4,7 @@ public abstract class ElectricalAppliances {
     protected String company;
     protected String model;
     protected int releaseDate;
-    protected int voltagePower;
+    protected int wattsPower;
     protected double weight;
     protected double length;
     protected double width;
@@ -12,12 +12,12 @@ public abstract class ElectricalAppliances {
     protected boolean bulkyItem;
     protected boolean power;
 
-    public ElectricalAppliances(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width,
+    public ElectricalAppliances(String company, String model, int releaseDate, int wattsPower, double weight, double length, double width,
                                 double thickness, boolean power) {
         this.company = company;
         this.model = model;
         this.releaseDate = releaseDate;
-        this.voltagePower = voltagePower;
+        this.wattsPower = wattsPower;
         this.weight = weight;
         this.length = length;
         this.width = width;
@@ -48,10 +48,10 @@ public abstract class ElectricalAppliances {
     }
 
     public int getVoltagePower() {
-        return voltagePower;
+        return wattsPower;
     }
     public void setVoltagePower(int voltagePower) {
-        this.voltagePower = voltagePower;
+        this.wattsPower = voltagePower;
     }
 
     public void setWeight (double weight) {

@@ -14,10 +14,10 @@ public class Fridge extends Coolers implements ChangeTemperature {
     protected int maxFreezerTemperature;
     protected int currentFreezerTemperature;
 
-    public Fridge(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width, double thickness,
+    public Fridge(String company, String model, int releaseDate, int wattsPower, double weight, double length, double width, double thickness,
                   boolean power, boolean heatingType, int minFridgeTemperature, int maxFridgeTemperature, int currentFridgeTemperature, String caseColor,
                   boolean freezer, int minFreezerTemperature, int maxFreezerTemperature, int currentFreezerTemperature) {
-        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power, false);
+        super(company, model, releaseDate, wattsPower, weight, length, width, thickness, power, false);
 
         this.minFridgeTemperature = minFridgeTemperature;
         this.maxFridgeTemperature = maxFridgeTemperature;
@@ -104,8 +104,6 @@ public class Fridge extends Coolers implements ChangeTemperature {
 
     @Override
     public String toString() {
-        return "Fridge company is " + company + ", model is " + model + ", and general parameters are: minTemperature - "
-                + minFridgeTemperature + ", maxTemperature - " + maxFridgeTemperature + ", Does it have a freezer? - "
-                + freezer + " and caseColor - " + caseColor;
+        return "Fridge company is " + company + ", model - " + model + ", Release Date - " + releaseDate + ", power in watts - " + wattsPower;
     }
 }

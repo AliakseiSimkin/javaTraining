@@ -10,9 +10,9 @@ public class Accommodation {
     }
 
 
-    public static ArrayList<ElectricalAppliances> getPowerOnDevices(ArrayList<ElectricalAppliances> accommodationDevices) {
+    public ArrayList<ElectricalAppliances> getPowerOnDevices() {
         ArrayList<ElectricalAppliances> powerOnDevices = new ArrayList<ElectricalAppliances>();
-        for (ElectricalAppliances device : accommodationDevices) {
+        for (ElectricalAppliances device : this.accommodationDevices) {
             if (device.getPower() == true) {
                 powerOnDevices.add(device);
             }
@@ -20,15 +20,15 @@ public class Accommodation {
         return powerOnDevices;
     }
 
-    public static void printDevices (ArrayList<ElectricalAppliances> devices) {
-        System.out.println("Number of device(s) - " + devices.size());
-        for (ElectricalAppliances printDevices : devices) {
+    public void print() {
+        System.out.println("Number of device(s) - " + this.accommodationDevices.size());
+        for (ElectricalAppliances printDevices : this.accommodationDevices) {
             System.out.println(printDevices);
         }
         System.out.println();
     }
 
-    public static int calculatePowerConsumption (ArrayList<ElectricalAppliances> devices) {
+    public int calculatePowerConsumption (ArrayList<ElectricalAppliances> devices) {
         int powerConsumption = 0;
         for (ElectricalAppliances device : devices) {
             powerConsumption += device.getVoltagePower();
@@ -36,8 +36,15 @@ public class Accommodation {
         return powerConsumption;
     }
 
-    public static ArrayList<ElectricalAppliances> sortByReleaseDate (ArrayList<ElectricalAppliances> devices) {
-        ArrayList<ElectricalAppliances> sortedDevices = new ArrayList<ElectricalAppliances>(devices);
+    public void printAccommDevicesByReleaseDate() {
+        for (ElectricalAppliances device : this.accommodationDevices) {
+            System.out.print(device.getReleaseDate() + " ");
+        }
+        System.out.println();
+    }
+
+    public ArrayList<ElectricalAppliances> sortByReleaseDate () {
+        ArrayList<ElectricalAppliances> sortedDevices = new ArrayList<ElectricalAppliances>(this.accommodationDevices);
         ElectricalAppliances tmp;
         for (int i = sortedDevices.size()-1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
@@ -53,16 +60,9 @@ public class Accommodation {
         return sortedDevices;
     }
 
-    public static void printDevicesReleaseDate (ArrayList<ElectricalAppliances> devices) {
-        for (ElectricalAppliances device : devices) {
-            System.out.print(device.getReleaseDate() + " ");
-        }
-        System.out.println();
-    }
-
-    public static ArrayList<ElectricalAppliances> findDeviceByPowerAndBulky (ArrayList<ElectricalAppliances> devices) {
+    public ArrayList<ElectricalAppliances> findDeviceByPowerAndBulky () {
         ArrayList<ElectricalAppliances> powerOnBulkyDevices = new ArrayList<ElectricalAppliances>();
-        for (ElectricalAppliances device : devices) {
+        for (ElectricalAppliances device : this.accommodationDevices) {
             if (device.getPower() == true && device.getBulkyItem() == true) {
                 powerOnBulkyDevices.add(device);
             }

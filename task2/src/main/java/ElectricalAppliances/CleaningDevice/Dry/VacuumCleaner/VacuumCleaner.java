@@ -10,9 +10,9 @@ public class VacuumCleaner extends Dry implements AirForceAdjustment {
     protected int suctionPower;
     protected String caseColor;
 
-    public VacuumCleaner(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width,
+    public VacuumCleaner(String company, String model, int releaseDate, int wattsPower, double weight, double length, double width,
                          double thickness, boolean power, int speed, String dustCollector, int vacuumCleanerPower, int suctionPower, String caseColor) {
-        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power, speed);
+        super(company, model, releaseDate, wattsPower, weight, length, width, thickness, power, speed);
 
         this.dustCollector = dustCollector;
         this.vacuumCleanerPower = vacuumCleanerPower;
@@ -55,7 +55,6 @@ public class VacuumCleaner extends Dry implements AirForceAdjustment {
 
     @Override
     public String toString() {
-        return "Vacuum Cleaner was produced by " + company + ", its model is " + model + " and it has following features: dustCollector - "
-                + dustCollector + ", caseColor - " + caseColor;
+        return "Vacuum Cleaner was produced by " + company + ", model - " + model + ", Release Date - " + releaseDate + ", watts power - " + wattsPower;
     }
 }

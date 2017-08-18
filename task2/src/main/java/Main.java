@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        HairDryer myHairDryer = new HairDryer("Xiaomi", "XT-Ultra1", 2016, 220, 1.5, 75,
+        HairDryer myHairDryer = new HairDryer("Xiaomi", "XT-Ultra1", 2016, 1020, 1.5, 75,
                 35, 20, true, 300, 120, "red", true);
 
         VacuumCleaner myVacuumCleaner = new VacuumCleaner("EPAM", "IoT VC - type 1", 2018, 220, 10,
@@ -43,27 +43,41 @@ public class Main {
 
         //Create a new ArrayList which contains only power ON devices.
         ArrayList<ElectricalAppliances> powerOnDevices = new ArrayList<ElectricalAppliances>();
-        powerOnDevices = Accommodation.getPowerOnDevices(myAccommodation.accommodationDevices);
+        powerOnDevices = myAccommodation.getPowerOnDevices();
 
         //Get row separator which depends on user's OS to move the carriage to a new line
         String newLine = System.getProperty("line.separator");
 
         //Print all power ON devices
         System.out.print("Devices are ON: ");
-        Accommodation.printDevices(powerOnDevices);
-        int powerConsumption =  Accommodation.calculatePowerConsumption(powerOnDevices); //Get total power consumption from all power ON devices
-        System.out.println(newLine + "Power consumed by power ON devices is " + powerConsumption);
+        printDevices(powerOnDevices);
+        int powerConsumption =  myAccommodation.calculatePowerConsumption(powerOnDevices); //Get total power consumption from all power ON devices
+        System.out.println(newLine + "Power consumpted by power ON devices is " + powerConsumption);
 
         //Sort devices by Release Date.
         ArrayList<ElectricalAppliances> sortedDevices = new ArrayList<ElectricalAppliances>(devicesInRoom);
         System.out.println("Sorting all devices by their Release Date ");
-        sortedDevices = Accommodation.sortByReleaseDate(myAccommodation.accommodationDevices);
-        Accommodation.sortByReleaseDate(sortedDevices);
-
+        sortedDevices = myAccommodation.sortByReleaseDate();
+        printDevicesByReleaseDate(sortedDevices);
 
         //Find device with POWER ON (true) and BulkyItem (true) parameters
-        ArrayList<ElectricalAppliances> powerOnBulkyDevices = Accommodation.findDeviceByPowerAndBulky(myAccommodation.accommodationDevices);
+        ArrayList<ElectricalAppliances> powerOnBulkyDevices = myAccommodation.findDeviceByPowerAndBulky();
         System.out.println(newLine + "Power ON and Bulky Devices will be printed: ");
-        Accommodation.printDevices(powerOnBulkyDevices);
+        printDevices(powerOnBulkyDevices);
+    }
+
+    public static void printDevices (ArrayList<ElectricalAppliances> devices) {
+        System.out.println("Number of device(s) - " + devices.size());
+        for (ElectricalAppliances printDevices : devices) {
+            System.out.println(printDevices);
+        }
+        System.out.println();
+    }
+
+    public static void printDevicesByReleaseDate(ArrayList<ElectricalAppliances> devices) {
+        for (ElectricalAppliances device : devices) {
+            System.out.print(device.getReleaseDate() + " ");
+        }
+        System.out.println();
     }
 }

@@ -11,10 +11,10 @@ public class TV extends AudioVideo implements ChangeVolume {
     protected boolean smartTV; //Does TV support smartTV or not?
     protected String smartTvType; // if smartTV is true - LG webOS  (3.0), AppleTV, etc
 
-    public TV(String company, String model, int releaseDate, int voltagePower, double weight, double length, double width, double thickness,
+    public TV(String company, String model, int releaseDate, int wattsPower, double weight, double length, double width, double thickness,
               boolean power, String tvType, int screenDiagonal, String screenResolution, String aspectRatio,
               boolean smartTV, String smartTvType) {
-        super(company, model, releaseDate, voltagePower, weight, length, width, thickness, power);
+        super(company, model, releaseDate, wattsPower, weight, length, width, thickness, power);
 
         this.tvType = tvType;
         this.screenDiagonal = screenDiagonal;
@@ -80,7 +80,6 @@ public class TV extends AudioVideo implements ChangeVolume {
 
     @Override
     public String toString() {
-        return "This TV is a the property of " + company + " company and its model is " + model + ". This TV has following up-to-date features: tvType - "
-                + tvType + " and screenDiagonal - " + screenDiagonal;
+        return "This TV is a the property of " + company + " company, model - " + model + ", Release Date - " + releaseDate + ", watts power - " + wattsPower;
     }
 }
