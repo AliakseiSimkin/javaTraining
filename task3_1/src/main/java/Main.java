@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         HairDryer myHairDryer = new HairDryer("Xiaomi", "XT-Ultra1", 2016, 1020, 1.5, 75,
-                35, 20, true, 300, 120, "red", true);
+                35, 20, true, 300, 120, "red", true, 50);
 
         VacuumCleaner myVacuumCleaner = new VacuumCleaner("EPAM", "IoT VC - type 1", 2018, 220, 10,
                 115, 75, 40, false, 700, "container", 350, 200,
@@ -21,7 +21,7 @@ public class Main {
                 true, -15, -5, -8);
 
         Heater myHeater = new Heater("BelAZ ", "homeTractorEngine_DX4021", 2018, 220, 13, 220,
-                113, 66, true, true, "Engine", 120);
+                113, 66, true, true, "Engine", 120,  25);
 
         TV myTV = new TV("Sony", "XperiaTV TU2", 2016, 220, 8, 330, 150, 10,
                 false, "LCD", 83, "UHD", "16:9", true, "AndroidTV");

@@ -2,6 +2,7 @@ package electricalAppliances.cleaningDevice.dry.vacuumCleaner;
 
 import electricalAppliances.cleaningDevice.dry.AirForceAdjustment;
 import electricalAppliances.cleaningDevice.dry.Dry;
+import electricalAppliances.cleaningDevice.dry.DryException;
 
 
 public class VacuumCleaner extends Dry implements AirForceAdjustment {
@@ -16,7 +17,12 @@ public class VacuumCleaner extends Dry implements AirForceAdjustment {
 
         this.dustCollector = dustCollector;
         this.vacuumCleanerPower = vacuumCleanerPower;
-        this.suctionPower = suctionPower;
+        try {
+            this.suctionPower = suctionPower;
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+        }
         this.caseColor = caseColor;
     }
 
@@ -50,7 +56,14 @@ public class VacuumCleaner extends Dry implements AirForceAdjustment {
 
     @Override
     public void setAirForce(int speed) {
-        /* some implementation */
+        /* some implementation, e.g. suctionPiwer = speed; */
+        try {
+            if (suctionPower < 0)
+                throw new DryException ("suction power can not be less than 0");
+        } catch (DryException ex) {
+            System.out.println("suction power will be set to 0");
+            suctionPower = 0;
+        }
     }
 
     @Override

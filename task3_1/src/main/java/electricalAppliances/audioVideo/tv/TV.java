@@ -19,6 +19,7 @@ public class TV extends AudioVideo implements ChangeVolume {
         this.tvType = tvType;
         this.screenDiagonal = screenDiagonal;
         this.screenResolution = screenResolution;
+
         this.aspectRatio = aspectRatio;
         this.smartTV = smartTV;
 

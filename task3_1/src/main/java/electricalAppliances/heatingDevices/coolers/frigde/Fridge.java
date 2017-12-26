@@ -14,27 +14,31 @@ public class Fridge extends Coolers implements ChangeTemperature {
     protected int maxFreezerTemperature;
     protected int currentFreezerTemperature;
 
-    public Fridge(String company, String model, int releaseDate, int wattsPower, double weight, double length, double width, double thickness,
-                  boolean power, boolean heatingType, int minFridgeTemperature, int maxFridgeTemperature, int currentFridgeTemperature, String caseColor,
-                  boolean freezer, int minFreezerTemperature, int maxFreezerTemperature, int currentFreezerTemperature) {
+
+    public Fridge(String company, String model, int releaseDate, int wattsPower, double weight, double length,
+        double width, double thickness,
+        boolean power, boolean heatingType, int minFridgeTemperature, int maxFridgeTemperature,
+        int currentFridgeTemperature, String caseColor,
+        boolean freezer, int minFreezerTemperature, int maxFreezerTemperature, int currentFreezerTemperature) {
         super(company, model, releaseDate, wattsPower, weight, length, width, thickness, power, false);
 
-        this.minFridgeTemperature = minFridgeTemperature;
-        this.maxFridgeTemperature = maxFridgeTemperature;
-        this.currentFridgeTemperature = currentFridgeTemperature;
-        this.caseColor = caseColor;
-        this.freezer = freezer;
+         try {
+            this.minFridgeTemperature = minFridgeTemperature;
+            this.maxFridgeTemperature = maxFridgeTemperature;
+            this.currentFridgeTemperature = currentFridgeTemperature;
+            this.caseColor = caseColor;
+            this.freezer = freezer;
 
 
-        if (freezer == true) {
-            this.minFreezerTemperature = minFreezerTemperature;
-            this.maxFreezerTemperature = maxFreezerTemperature;
-        }
-        else {
-            this.minFreezerTemperature = 0;
-            this.maxFreezerTemperature = 0;
-        }
-        this.currentFreezerTemperature = currentFreezerTemperature;
+            if (freezer == true) {
+                this.minFreezerTemperature = minFreezerTemperature;
+                this.maxFreezerTemperature = maxFreezerTemperature;
+            } else {
+                this.minFreezerTemperature = 0;
+                this.maxFreezerTemperature = 0;
+            }
+            this.currentFreezerTemperature = currentFreezerTemperature;
+        } catch (Exception e){e.printStackTrace();};
     }
 
     public int getMinFridgeTemperature() {
