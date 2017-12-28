@@ -106,6 +106,11 @@ public class Fridge extends Coolers implements ChangeTemperature {
         /* some implementation */
     }
 
+    public void emergencyPowerShutdown () {
+        if (currentFridgeTemperature == 0) { new ArithmeticException("Current Fridge temperature can not be 0"); }
+        currentFreezerTemperature = currentFreezerTemperature / currentFridgeTemperature;
+    }
+
     @Override
     public String toString() {
         return "Fridge company is " + company + ", model - " + model + ", Release Date - " + releaseDate + ", power in watts - " + wattsPower;

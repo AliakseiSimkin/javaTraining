@@ -1,3 +1,6 @@
+import Exceptions.AudioVideoMaxVolumeException;
+import Exceptions.AudioVideoMinVolumeException;
+import Exceptions.HTNegativeTempException;
 import electricalAppliances.ElectricalAppliances;
 import electricalAppliances.audioVideo.tv.TV;
 import electricalAppliances.cleaningDevice.dry.hairDryer.HairDryer;
@@ -64,6 +67,40 @@ public class Main {
         ArrayList<ElectricalAppliances> powerOnBulkyDevices = myAccommodation.findDeviceByPowerAndBulky();
         System.out.println(newLine + "Power ON and Bulky Devices will be printed: ");
         printDevices(powerOnBulkyDevices);
+
+
+        //Task 3.1 - add some exceptions and catch them all!
+        //Use custom HTNegativeTempException clss - that class is used to warn a user about he can not use negative value for temperature.
+        try {
+            myHeater.temperatureUp(-5);
+        } catch (HTNegativeTempException e) {
+            e.printStackTrace();
+            myHeater.setDefaultTemperature(0);
+        }
+
+        //Use custom AudioVideoMaxVolumeException to warn user about maximum volume value can not be above than 100
+        try {
+            myTV.volumeUp(55);
+        } catch (AudioVideoMaxVolumeException e) {
+            e.printStackTrace();
+            System.out.println("Set current volume value to 100 because it is its maximum");
+            myTV.setCurrentVolume(100);
+        }
+
+        //Use custom AudioVideoMinVolumeException to warn user about minimum volume value can not be under 0
+        try {
+            myTV2.volumeDown(75);
+        } catch (AudioVideoMinVolumeException e) {
+            e.printStackTrace();
+            System.out.println("Volume value can not be under 0. Set volume value to the minimal one. Now volume value is 0");
+            myTV2.setCurrentVolume(0);
+        }
+
+        //Use embedded exceptions.
+        // 1) ArithmeticException is used in "Fridge" classs - emergencyPowerShutdown method
+        // 2)
+
+
     }
 
     public static void printDevices (ArrayList<ElectricalAppliances> devices) {
