@@ -1,4 +1,12 @@
-.idea
+/.classpath
+/.project
+.settings
+reports
 target
-javaTrainingArt3_1.iml
-src/main/main.iml
+test-output
+src.bak
+.DS_Store
+*.checkstyle
+.idea/
+*.iml
+*.log
