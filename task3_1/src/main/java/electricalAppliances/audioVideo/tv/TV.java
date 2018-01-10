@@ -76,8 +76,10 @@ public class TV extends AudioVideo implements ChangeVolume {
     public int getCurrentVolume() {
         return currentVolume;
     }
-
     public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0 ) {
+            throw new IllegalArgumentException("Volume can not be less than 0. Try to use another value.");
+        }
         this.currentVolume = currentVolume;
     }
 
@@ -94,7 +96,7 @@ public class TV extends AudioVideo implements ChangeVolume {
     public void volumeDown(int volume) throws AudioVideoMinVolumeException {
         /* some implementation */
         if (currentVolume - volume < 0) {
-            throw new AudioVideoMinVolumeException("Min volume can not be under 0");
+            throw new AudioVideoMinVolumeException("Min volume can not be less than 0");
         }
     }
 

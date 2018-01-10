@@ -21,14 +21,11 @@ public class Fridge extends Coolers implements ChangeTemperature {
         int currentFridgeTemperature, String caseColor,
         boolean freezer, int minFreezerTemperature, int maxFreezerTemperature, int currentFreezerTemperature) {
         super(company, model, releaseDate, wattsPower, weight, length, width, thickness, power, false);
-
-         try {
             this.minFridgeTemperature = minFridgeTemperature;
             this.maxFridgeTemperature = maxFridgeTemperature;
             this.currentFridgeTemperature = currentFridgeTemperature;
             this.caseColor = caseColor;
             this.freezer = freezer;
-
 
             if (freezer == true) {
                 this.minFreezerTemperature = minFreezerTemperature;
@@ -38,7 +35,6 @@ public class Fridge extends Coolers implements ChangeTemperature {
                 this.maxFreezerTemperature = 0;
             }
             this.currentFreezerTemperature = currentFreezerTemperature;
-        } catch (Exception e){e.printStackTrace();};
     }
 
     public int getMinFridgeTemperature() {
@@ -107,7 +103,9 @@ public class Fridge extends Coolers implements ChangeTemperature {
     }
 
     public void emergencyPowerShutdown () {
-        if (currentFridgeTemperature == 0) { new ArithmeticException("Current Fridge temperature can not be 0"); }
+        if (currentFridgeTemperature == 0) {
+            new ArithmeticException("Current Fridge temperature can not be 0");
+        }
         currentFreezerTemperature = currentFreezerTemperature / currentFridgeTemperature;
     }
 

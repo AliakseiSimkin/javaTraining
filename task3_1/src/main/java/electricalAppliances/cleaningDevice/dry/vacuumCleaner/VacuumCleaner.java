@@ -17,12 +17,7 @@ public class VacuumCleaner extends Dry implements AirForceAdjustment {
 
         this.dustCollector = dustCollector;
         this.vacuumCleanerPower = vacuumCleanerPower;
-        try {
-            this.suctionPower = suctionPower;
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            System.out.println(ex.getStackTrace());
-        }
+        this.suctionPower = suctionPower;
         this.caseColor = caseColor;
     }
 
@@ -44,6 +39,11 @@ public class VacuumCleaner extends Dry implements AirForceAdjustment {
         return suctionPower;
     }
     public void setSuctionPower(int suctionPower) {
+        if (suctionPower < 0) {
+            throw new IllegalArgumentException("suction power can not be less than 0");
+        }
+
+
         this.suctionPower = suctionPower;
     }
 

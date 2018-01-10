@@ -37,6 +37,9 @@ public class Heater extends Heaters implements ChangeTemperature {
         return defaultTemperature;
     }
     public void setDefaultTemperature(int defaultTemperature) {
+        if (defaultTemperature < 0) {
+            throw new IllegalArgumentException("Default Temperature can not be less than 0 degres");
+        }
         this.defaultTemperature = defaultTemperature;
     }
 
