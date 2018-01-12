@@ -1,3 +1,6 @@
+import Exceptions.AudioVideoMaxVolumeException;
+import Exceptions.AudioVideoMinVolumeException;
+import Exceptions.HTNegativeTempException;
 import electricalAppliances.ElectricalAppliances;
 import electricalAppliances.audioVideo.tv.TV;
 import electricalAppliances.cleaningDevice.dry.hairDryer.HairDryer;
@@ -10,7 +13,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         HairDryer myHairDryer = new HairDryer("Xiaomi", "XT-Ultra1", 2016, 1020, 1.5, 75,
-                35, 20, true, 300, 120, "red", true);
+                35, 20, true, 300, 120, "red", true, 50, -2);
 
         VacuumCleaner myVacuumCleaner = new VacuumCleaner("EPAM", "IoT VC - type 1", 2018, 220, 10,
                 115, 75, 40, false, 700, "container", 350, 200,
@@ -21,7 +24,7 @@ public class Main {
                 true, -15, -5, -8);
 
         Heater myHeater = new Heater("BelAZ ", "homeTractorEngine_DX4021", 2018, 220, 13, 220,
-                113, 66, true, true, "Engine", 120);
+                113, 66, true, true, "Engine", 120,  25);
 
         TV myTV = new TV("Sony", "XperiaTV TU2", 2016, 220, 8, 330, 150, 10,
                 false, "LCD", 83, "UHD", "16:9", true, "AndroidTV");
@@ -64,6 +67,92 @@ public class Main {
         ArrayList<ElectricalAppliances> powerOnBulkyDevices = myAccommodation.findDeviceByPowerAndBulky();
         System.out.println(newLine + "Power ON and Bulky Devices will be printed: ");
         printDevices(powerOnBulkyDevices);
+
+
+        //Task 3.1 - add some exceptions and catch them all!
+        //1) Use custom HTNegativeTempException clss - that class is used to warn a user about he can not use negative value for temperature.
+        try {
+            myHeater.temperatureUp(-5);
+        } catch (HTNegativeTempException e) {
+            e.printStackTrace();
+            myHeater.setDefaultTemperature(0);
+        }
+
+        //2) Use custom AudioVideoMaxVolumeException to warn user about maximum volume value can not be above than 100
+        try {
+            myTV.volumeUp(55);
+        } catch (AudioVideoMaxVolumeException e) {
+            e.printStackTrace();
+            System.out.println("Set current volume value to 100 because it is its maximum");
+            myTV.setCurrentVolume(100);
+        }
+
+        //3) Use custom AudioVideoMinVolumeException to warn user about minimum volume value can not be under 0
+        try {
+            myTV2.volumeDown(75);
+        } catch (AudioVideoMinVolumeException e) {
+            e.printStackTrace();
+            System.out.println("Volume value can not be under 0. Set volume value to the minimal one. Now volume value is 0");
+            myTV2.setCurrentVolume(0);
+        }
+
+        //Use embedded exceptions.
+        // 1) ArithmeticException is used in "Fridge" class - emergencyPowerShutdown method
+        try {
+            myFridge.emergencyPowerShutdown();
+        } catch (ArithmeticException e) {
+            e.getStackTrace();
+            e.getCause();
+            myFridge.setCurrentFreezerTemperature(-5);
+            System.out.println("Current freezer temperature is -5 degree");
+        }
+
+        // 2) IllegalArgumentException - Heater class
+        try {
+            myHeater.setDefaultTemperature(-7);
+        } catch (IllegalArgumentException e) {
+            e.getMessage();
+            e.getStackTrace();
+            System.out.println("Current heater temperature has been set to 0");
+            myHeater.setDefaultTemperature(0);
+
+        }
+
+        //3) IllegalArgumentException - TV class
+        try {
+            myTV2.setCurrentVolume(-23);
+        } catch (IllegalArgumentException e) {
+            e.getMessage();
+            e.getStackTrace();
+            e.getClass();
+            System.out.println("TV volume can not be less than 0. Current TV volume has been set to 0");
+            myTV2.setCurrentVolume(0);
+        }
+
+        //4) IllegalStateException - HairDryer class
+        try {
+            myHairDryer.isTemperatureCorrect(myHairDryer.getColdAir(), myHairDryer.getAirTemperature());
+        } catch (IllegalStateException e) {
+            e.getStackTrace();
+            if (myHairDryer.getColdAir()== true && myHairDryer.getAirTemperature() > 0) {
+                myHairDryer.setAirTemperature(-1);
+                System.out.println("Default air temperature in cold air mode has been set (-1 degree)");
+            }
+            if (myHairDryer.getColdAir()== false&& myHairDryer.getAirTemperature() < 0) {
+                myHairDryer.setAirTemperature(1);
+                System.out.println("Default air temperature in warm air mode has been set (1 degree)");
+            }
+        }
+
+        //5) IllegalArgumentException - VacuumCLeaner class
+        try {
+            myVacuumCleaner.setSuctionPower(-63);
+        } catch (IllegalArgumentException e) {
+            e.getStackTrace();
+            System.out.println("VacuumCleaner power has been set to the mininal one - 0");
+            myVacuumCleaner.setSuctionPower(0);
+        }
+
     }
 
     public static void printDevices (ArrayList<ElectricalAppliances> devices) {

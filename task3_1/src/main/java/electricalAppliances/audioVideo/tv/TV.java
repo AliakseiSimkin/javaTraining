@@ -1,5 +1,7 @@
 package electricalAppliances.audioVideo.tv;
 
+import Exceptions.AudioVideoMaxVolumeException;
+import Exceptions.AudioVideoMinVolumeException;
 import electricalAppliances.audioVideo.AudioVideo;
 import electricalAppliances.audioVideo.ChangeVolume;
 
@@ -10,6 +12,7 @@ public class TV extends AudioVideo implements ChangeVolume {
     protected String aspectRatio; //4:3, 16:9, etc
     protected boolean smartTV; //Does TV support smartTV or not?
     protected String smartTvType; // if smartTV is true - LG webOS  (3.0), AppleTV, etc
+    protected int currentVolume; //current volume value. Default value is 35 (max value is 100)
 
     public TV(String company, String model, int releaseDate, int wattsPower, double weight, double length, double width, double thickness,
               boolean power, String tvType, int screenDiagonal, String screenResolution, String aspectRatio,
@@ -19,8 +22,10 @@ public class TV extends AudioVideo implements ChangeVolume {
         this.tvType = tvType;
         this.screenDiagonal = screenDiagonal;
         this.screenResolution = screenResolution;
+
         this.aspectRatio = aspectRatio;
         this.smartTV = smartTV;
+        this.currentVolume = 35;
 
         if (smartTV == true) {
             this.smartTvType = smartTvType;
@@ -68,14 +73,31 @@ public class TV extends AudioVideo implements ChangeVolume {
         this.smartTvType = smartTvType;
     }
 
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0 ) {
+            throw new IllegalArgumentException("Volume can not be less than 0. Try to use another value.");
+        }
+        this.currentVolume = currentVolume;
+    }
+
+
     @Override
-    public void volumeUp(int volume) {
+    public void volumeUp(int volume) throws AudioVideoMaxVolumeException {
         /* some implementation */
+        if (currentVolume + volume > 100) {
+            throw new AudioVideoMaxVolumeException("Max volume can not be above than 100");
+        }
     }
 
     @Override
-    public void volumeDown(int volume) {
+    public void volumeDown(int volume) throws AudioVideoMinVolumeException {
         /* some implementation */
+        if (currentVolume - volume < 0) {
+            throw new AudioVideoMinVolumeException("Min volume can not be less than 0");
+        }
     }
 
     @Override
