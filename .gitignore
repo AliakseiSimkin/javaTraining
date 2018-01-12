@@ -10,3 +10,12 @@ src.bak
 .idea/
 *.iml
 *.log
+task2/target
+task2/.idea
+task2/javaTrainingArt2.iml
+task2_methodComparison/target
+task2_methodComparison/.idea
+task2_methodComparison/javaTrainingArt2_1.iml
+ask3_1/target
+ask3_1/.idea
+ask3_1/javaTrainingArt3_1.iml
