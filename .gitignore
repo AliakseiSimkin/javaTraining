@@ -13,9 +13,11 @@ src.bak
 task2/target
 task2/.idea
 task2/javaTrainingArt2.iml
+task2/src/main/main.iml
 task2_methodComparison/target
 task2_methodComparison/.idea
-task2_methodComparison/javaTrainingArt2_1.iml
-ask3_1/target
-ask3_1/.idea
-ask3_1/javaTrainingArt3_1.iml
+task2_methodComparison/task2_compareCollections.iml
+task3_1/target
+task3_1/.idea
+task3_1/javaTrainingArt3_1.iml
+task3_1/src/main/main.iml
