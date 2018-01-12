@@ -12,8 +12,7 @@ src.bak
 *.log
 **/target
 **/.idea
+**/src/main/main.iml
 task2/javaTrainingArt2.iml
-task2/src/main/main.iml
 task2_methodComparison/task2_compareCollections.iml
 task3_1/javaTrainingArt3_1.iml
-task3_1/src/main/main.iml
