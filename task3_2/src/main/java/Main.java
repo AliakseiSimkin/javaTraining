@@ -8,6 +8,9 @@ import electricalAppliances.cleaningDevice.dry.vacuumCleaner.VacuumCleaner;
 import electricalAppliances.heatingDevices.coolers.frigde.Fridge;
 import electricalAppliances.heatingDevices.heaters.heater.Heater;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
@@ -153,6 +156,33 @@ public class Main {
             myVacuumCleaner.setSuctionPower(0);
         }
 
+        //Task3_2 - write information about some electrical appliances into a file
+        System.out.println("\n");
+        try {
+            FileWriter writer = new FileWriter("E:\\javaCDP\\javaTraining\\task3_2\\infoAboutMyTV2.txt", false);
+            writer.write(myTV2.toString());
+            writer.write("\r\n");
+            writer.flush();
+            writer.close();
+            System.out.println("File infoAboutMyTV2.txt has been created under E:\\javaCDP\\javaTraining\\task3_2 folder");
+        } catch (IOException e) {
+            e.getCause();
+            e.getStackTrace();
+        }
+
+        //Task3_2 - read from previous created file
+        System.out.println("\n");
+        try {
+            FileReader reader = new FileReader("E:\\javaCDP\\javaTraining\\task3_2\\infoAboutMyTV2.txt");
+            int readFromFile;
+            System.out.println("File infoAboutMyTV2.txt contains following");
+            while ((readFromFile = reader.read()) !=-1 ) {
+                System.out.print((char) readFromFile);
+            }
+        } catch (IOException ex) {
+            ex.getStackTrace();
+            ex.getCause();
+        }
     }
 
     public static void printDevices (ArrayList<ElectricalAppliances> devices) {
