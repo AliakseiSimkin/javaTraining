@@ -1,6 +1,6 @@
 package electricalAppliances.heatingDevices.heaters.heater;
 
-import Exceptions.HTNegativeTempException;
+import exceptions.HTNegativeTempException;
 import electricalAppliances.heatingDevices.ChangeTemperature;
 import electricalAppliances.heatingDevices.heaters.Heaters;
 

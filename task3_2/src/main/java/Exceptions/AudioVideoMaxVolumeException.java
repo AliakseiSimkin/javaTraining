@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 public class AudioVideoMaxVolumeException extends Exception {
     public AudioVideoMaxVolumeException (String message) {
