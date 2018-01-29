@@ -1,0 +1,1 @@
+Vacuum Cleaner was produced by EPAM, model - IoT VC - type 1, Release Date - 2018, watts power - 220

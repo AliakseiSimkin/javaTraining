@@ -155,12 +155,11 @@ public class Main {
         }
 
         //Task3_2 - write a content to a file
-        FileDataAccess file = new FileDataAccess();
-        String fileName = "E:\\javaCDP\\javaTraining\\task3_2\\inputFile.txt";
-        file.writeData(fileName, myVacuumCleaner.toString());
+        FileDataAccess fileDataAccess = new FileDataAccess();
+        fileDataAccess.writeData(myVacuumCleaner);
 
         //Task3_2 - read from previous created file
-        file.readData(fileName);
+        fileDataAccess.readData();
     }
 
     public static void printDevices (ArrayList<ElectricalAppliances> devices) {

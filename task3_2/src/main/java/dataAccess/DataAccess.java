@@ -1,6 +1,8 @@
 package dataAccess;
 
+import electricalAppliances.ElectricalAppliances;
+
 public interface DataAccess {
-    public void readData (String fileName);
-    public void writeData (String fileName, String content);
+    public String readData ();
+    public void writeData (ElectricalAppliances electricalAppliances);
 }
