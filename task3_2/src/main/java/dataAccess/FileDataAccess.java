@@ -5,7 +5,7 @@ import electricalAppliances.ElectricalAppliances;
 import java.io.*;
 
 public class FileDataAccess implements DataAccess {
-    String filePath = "dataFile.txt";
+    String filePath = "src/main/resources/dataFile.txt";
     String currentLine;
     String outputData;
 
