@@ -1,7 +1,7 @@
 package electricalAppliances.audioVideo.tv;
 
-import Exceptions.AudioVideoMaxVolumeException;
-import Exceptions.AudioVideoMinVolumeException;
+import exceptions.AudioVideoMaxVolumeException;
+import exceptions.AudioVideoMinVolumeException;
 import electricalAppliances.audioVideo.AudioVideo;
 import electricalAppliances.audioVideo.ChangeVolume;
 

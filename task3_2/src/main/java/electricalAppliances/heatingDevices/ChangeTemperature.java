@@ -1,7 +1,7 @@
 package electricalAppliances.heatingDevices;
 
 
-import Exceptions.HTNegativeTempException;
+import exceptions.HTNegativeTempException;
 
 public interface ChangeTemperature {
 

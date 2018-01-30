@@ -1,7 +1,7 @@
 package electricalAppliances.audioVideo;
 
-import Exceptions.AudioVideoMaxVolumeException;
-import Exceptions.AudioVideoMinVolumeException;
+import exceptions.AudioVideoMaxVolumeException;
+import exceptions.AudioVideoMinVolumeException;
 
 public interface ChangeVolume {
 

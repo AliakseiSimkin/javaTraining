@@ -1,12 +1,13 @@
-import Exceptions.AudioVideoMaxVolumeException;
-import Exceptions.AudioVideoMinVolumeException;
-import Exceptions.HTNegativeTempException;
+import dataAccess.FileDataAccess;
 import electricalAppliances.ElectricalAppliances;
 import electricalAppliances.audioVideo.tv.TV;
 import electricalAppliances.cleaningDevice.dry.hairDryer.HairDryer;
 import electricalAppliances.cleaningDevice.dry.vacuumCleaner.VacuumCleaner;
 import electricalAppliances.heatingDevices.coolers.frigde.Fridge;
 import electricalAppliances.heatingDevices.heaters.heater.Heater;
+import exceptions.AudioVideoMaxVolumeException;
+import exceptions.AudioVideoMinVolumeException;
+import exceptions.HTNegativeTempException;
 
 import java.util.ArrayList;
 
@@ -153,6 +154,12 @@ public class Main {
             myVacuumCleaner.setSuctionPower(0);
         }
 
+        //Task3_2 - write a content to a file
+        FileDataAccess fileDataAccess = new FileDataAccess();
+        fileDataAccess.writeData(myVacuumCleaner);
+
+        //Task3_2 - read from previous created file
+        fileDataAccess.readData();
     }
 
     public static void printDevices (ArrayList<ElectricalAppliances> devices) {
